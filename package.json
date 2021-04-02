@@ -1,0 +1,39 @@
+{
+  "name": "EINES1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "parcel:dev": "parcel PEC1/index.html",
+    "parcel:build": "parcel build PEC1/index.html",
+    "dev": "npm-run-all clean parcel:dev",
+    "build": "npm-run-all clean parcel:build",
+    "clean": "rimraf dist .cache .cache-loader",
+    "bl": "browserlist \"last 4 version, >1%, IE10\"",
+    "format": "prettier --write \"PEC1/**/*.*\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ptousd/eines1.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ptousd/eines1/issues"
+  },
+  "homepage": "https://github.com/ptousd/eines1#readme",
+  "devDependencies": {
+    "autoprefixer": "^9.8.6",
+    "npm-run-all": "^4.1.5",
+    "parcel-bundler": "^1.12.3",
+    "postcss-css-variables": "^0.17.0",
+    "prettier": "2.2.1",
+    "rimraf": "^3.0.2",
+    "sass": "^1.32.8"
+  },
+  "dependencies": {
+    "viewerjs": "^1.9.0"
+  }
+}
