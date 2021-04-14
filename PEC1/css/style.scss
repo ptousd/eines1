@@ -218,6 +218,9 @@ La imagen está adaptado en peso y forma al tamaño del dispositivo
   opacity: 0.5;
 }
 
+/*
+La lista de categorías se mustra por columnas, por defecto se utiliza layout flex por si el navegador no soporta el layout grid
+*/
 
 @media only screen and (min-width: 768px) {
   .categoria__lista {
@@ -236,7 +239,7 @@ La imagen está adaptado en peso y forma al tamaño del dispositivo
 
 @supports (display:grid) {
 /*
-A partir de tamaño tablet grid de dos columnas, los items en flex para ocupar mejor el espacio
+A partir de tamaño tablet utiliza grid de dos columnas si el navegador lo soporta, los items en flex para ocupar mejor el espacio
 */
 
 @media only screen and (min-width: 768px) {
@@ -274,6 +277,11 @@ A partir de tamaño escritorio grid de tres columnas, los items en flex para ocu
 *              SELECTORES PÁGINA DETALLE
 ***************************************************************/
 
+/*
+En la página detalle se visualiza la información en dos columnas en dispositivos tamaño escritorio
+ por defecto se utiliza layout flex por si el navegador no soporta el layout grid
+*/
+
 @media only screen and (min-width: 1224px) {
   .detalle {
     display: flex;
@@ -289,14 +297,17 @@ A partir de tamaño escritorio grid de tres columnas, los items en flex para ocu
 }
 
 @supports (display:grid) {
-@media only screen and (min-width: 1224px) {
-  .detalle {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-column-gap: 1.5em;
-    padding: 0;
+
+/* Si el navegador lo soporta se utiliza grid */
+
+  @media only screen and (min-width: 1224px) {
+    .detalle {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-column-gap: 1.5em;
+      padding: 0;
+    }
   }
-}
 }
 
 
@@ -313,6 +324,7 @@ A partir de tamaño escritorio grid de tres columnas, los items en flex para ocu
 
 /*
 La descripción de la receta junto con la foto se muestran en dos columnas en tamaño escritorio
+Por defecto se utiliza layout flex por si el navegador no soporta el layout grid
 */
 @media only screen and (min-width: 1224px) {
   .receta {
@@ -326,14 +338,17 @@ La descripción de la receta junto con la foto se muestran en dos columnas en ta
 
 
 @supports (display:grid) {
-@media only screen and (min-width: 1224px) {
-  .receta {
-    display: grid;
-    grid-template-columns: 0.3fr 0.7fr;
-    grid-column-gap: 1.5em;
-    padding: 0;
+  /*
+  En caso de que el navegador soporte el layout grid 
+  */
+  @media only screen and (min-width: 1224px) {
+    .receta {
+      display: grid;
+      grid-template-columns: 0.3fr 0.7fr;
+      grid-column-gap: 1.5em;
+      padding: 0;
+    }
   }
-}
 }
 
 .receta__elaboracion,
