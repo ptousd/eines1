@@ -10,7 +10,7 @@ body {
 
 h1 {
   color: var(--font-highlight-color);
-  font-size: 1.8rem;
+  font-size: 1.8em;
 }
 
 /*Formato de enlaces. Sin decoración por defecto, con borde inferior dashed */
@@ -26,7 +26,7 @@ a:hover {
 
 figure {
   margin: 0;
-  padding: 4px;
+  padding: 3px;
 }
 
 abbr {
@@ -39,30 +39,30 @@ abbr {
 
 .simplepadding,
 .globalpadding {
-  padding-left: 1rem;
-  padding-right: 1rem;
+  padding-left: 1em;
+  padding-right: 1em;
 }
 
 @media only screen and (min-width: 768px) {
   .simplepadding,
   .globalpadding {
-    padding-left: 8rem;
-    padding-right: 8rem;
+    padding-left: 8em;
+    padding-right: 8em;
   }
 }
 
 @media only screen and (min-width: 1224px) {
   .globalpadding {
-    padding-left: 15rem;
-    padding-right: 15rem;
+    padding-left: 15em;
+    padding-right: 15em;
   }
 }
 
 .header {
-  padding-left: calc(50% - 18rem);
+  padding-left: calc(50% - 18em);
   display: flex;
   align-items: center;
-  padding-top: 1rem;
+  padding-top: 1em;
 }
 
 /*
@@ -73,17 +73,17 @@ Se utiliza en la foto de la cabecera
 }
 
 .img--reduced {
-  width: 6rem;
+  width: 6em;
 }
 
 @media only screen and (min-width: 768px) {
   .img--reduced {
-    width: 10rem;
+    width: 10em;
   }
 }
 
 .fig-header {
-  padding: 1rem;
+  padding: 1em;
 }
 
 .underscore {
@@ -101,19 +101,19 @@ Se utiliza en la foto de la cabecera
 
 .presentacion {
   margin: 0;
-  padding-top: 3rem;
+  padding-top: 3em;
   text-align: center;
 }
 
 @media only screen and (min-width: 768px) {
   .presentacion {
-    margin-top: 5rem;
+    margin-top: 5em;
   }
 }
 
 @media only screen and (min-width: 1224px) {
   .presentacion {
-    margin-top: 10rem;
+    margin-top: 10em;
   }
 }
 
@@ -132,7 +132,7 @@ Se utiliza en la foto de la cabecera
   margin-top: 12px;
   padding: 0;
   display: block;
-  font-size: 1.1rem;
+  font-size: 1.1em;
   font-weight: 700;
 }
 
@@ -167,7 +167,7 @@ La portada ocupa todo el viewport, utilizamos flex para que el pie aparezca en e
 }
 
 .pie-portada {
-  padding: 0.1rem 0 0.1rem;
+  padding: 0.1em 0 0.1em;
   text-align: center;
 }
 
@@ -201,10 +201,10 @@ La imagen está adaptado en peso y forma al tamaño del dispositivo
 
 .categoria__item {
   list-style: none;
-  padding: 3px;
   text-align: center;
   margin: 0;
-  margin-bottom: 2rem;
+  margin-bottom: 2em;
+  padding-bottom: 1.5em;
   background-color: var(--bg-highlight-color);
   box-shadow: 5px 10px 18px var(--box-shadow-color);
 }
@@ -218,27 +218,43 @@ La imagen está adaptado en peso y forma al tamaño del dispositivo
   opacity: 0.5;
 }
 
+
+@media only screen and (min-width: 768px) {
+  .categoria__lista {
+    display: flex;
+    flex-flow: row wrap;
+  }
+
+  .categoria__item {
+    flex: 0 0 450px;
+    margin-left: 1.5em;
+    margin-bottom: 1.5em;
+    padding-bottom: 0;
+  }
+}
+
+
+@supports (display:grid) {
 /*
-A partir de tamaño table grid de dos columnas, los items en flex para ocupar mejor el espacio
+A partir de tamaño tablet grid de dos columnas, los items en flex para ocupar mejor el espacio
 */
 
 @media only screen and (min-width: 768px) {
   .categoria__lista {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-column-gap: 1.5rem;
-    grid-auto-rows: auto;
+    grid-column-gap: 1.5em;
+    grid-row-gap: 1.5em;
   }
 
-  .categoria__item {
+ .categoria__item {
+    margin-left: 0;
+    margin-bottom: 0;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-  }
+ }
 
-  .categoria__img {
-    max-width: 250px;
-  }
 }
 
 /*
@@ -249,29 +265,46 @@ A partir de tamaño escritorio grid de tres columnas, los items en flex para ocu
   .categoria__lista {
     grid-template-columns: repeat(3, 1fr);
   }
-
-  .categoria__img {
-    max-width: 450px;
-  }
 }
 
-@media only screen and (min-width: 1224px) {
-  .detalle {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-column-gap: 1.5rem;
-  }
 }
+
 
 /***************************************************************
 *              SELECTORES PÁGINA DETALLE
 ***************************************************************/
 
+@media only screen and (min-width: 1224px) {
+  .detalle {
+    display: flex;
+    flex-flow: row wrap;
+    padding-left: 8em;
+    padding-right: 8em;
+  }
+
+  .detalle__txt,
+  .detalle__img {
+     flex: 1 1;
+  }
+}
+
+@supports (display:grid) {
+@media only screen and (min-width: 1224px) {
+  .detalle {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 1.5em;
+    padding: 0;
+  }
+}
+}
+
+
 .detalle__txt {
-  margin-bottom: 3rem;
-  padding: 2rem;
+  margin-bottom: 3em;
+  padding: 2em;
   text-align: justify;
-  line-height: 2rem;
+  line-height: 2em;
 }
 
 .detalle__img {
@@ -281,18 +314,31 @@ A partir de tamaño escritorio grid de tres columnas, los items en flex para ocu
 /*
 La descripción de la receta junto con la foto se muestran en dos columnas en tamaño escritorio
 */
+@media only screen and (min-width: 1224px) {
+  .receta {
+    display: flex;
+    flex: row wrap;
+    padding-left: 8em;
+    padding-right: 8em;
+  }
+}
 
+
+
+@supports (display:grid) {
 @media only screen and (min-width: 1224px) {
   .receta {
     display: grid;
     grid-template-columns: 0.3fr 0.7fr;
-    grid-column-gap: 1.5rem;
+    grid-column-gap: 1.5em;
+    padding: 0;
   }
+}
 }
 
 .receta__elaboracion,
 .receta__ingredientes {
-  padding: 1rem;
+  padding: 1em;
 }
 
 .receta__lista-ingredientes,
